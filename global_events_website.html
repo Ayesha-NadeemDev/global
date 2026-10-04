@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Events | Luxury Event Production & Design</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Playfair Display, Cormorant Garamond, Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        lilac: {
+                            50: '#F9F6FC',
+                            100: '#E8DFEE',
+                            200: '#D6C7E2',
+                            300: '#C3B1E1',
+                            400: '#9D84B7',
+                            500: '#8C6D9A',
+                            600: '#755484',
+                            700: '#5C3E69',
+                        },
+                        plum: {
+                            100: '#F4EFF4',
+                            200: '#E2D5E3',
+                            500: '#73527A',
+                            800: '#4A3552',
+                            900: '#2C1D32',
+                        },
+                        silk: {
+                            50: '#FFFFFF',
+                            100: '#FDFBFC',
+                            200: '#F6F0F8',
+                            300: '#EBE0EF',
+                        }
+                    },
+                    fontFamily: {
+                        playfair: ['"Playfair Display"', 'serif'],
+                        garamond: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .text-lilac-gradient {
+            background: linear-gradient(135deg, #9D84B7 0%, #755484 50%, #B59EAD 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .lilac-pill-btn {
+            background: linear-gradient(135deg, #9D84B7 0%, #755484 100%);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .lilac-pill-btn:hover {
+            box-shadow: 0 10px 25px -5px rgba(157, 132, 183, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .soft-glass-card {
+            background: rgba(253, 251, 252, 0.94);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(195, 177, 225, 0.45);
+            box-shadow: 0 12px 32px -8px rgba(44, 29, 50, 0.05);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .soft-glass-card:hover {
+            border-color: rgba(157, 132, 183, 0.75);
+            box-shadow: 0 20px 40px -10px rgba(140, 109, 154, 0.18);
+        }
+
+        .bg-lilac-mesh {
+            background-color: #FDFBFC;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(232, 223, 238, 0.8) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(246, 240, 248, 0.85) 0px, transparent 50%),
+                radial-gradient(at 50% 40%, rgba(214, 199, 226, 0.3) 0px, transparent 60%);
+        }
+
+        .nav-link.active {
+            color: #8C6D9A;
+            font-weight: 700;
+        }
+
+        .nav-link.active::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: #9D84B7;
+            margin-top: 2px;
+            border-radius: 2px;
+        }
+
+        /* Checkbox styling */
+        .custom-checkbox:checked {
+            background-color: #8C6D9A;
+            border-color: #8C6D9A;
+        }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-lilac-mesh text-plum-900 font-sans antialiased selection:bg-lilac-200 selection:text-plum-900">
+
+    <!-- Sticky Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 py-3.5 bg-silk-100/90 backdrop-blur-md border-b border-lilac-200/60 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
+            
+            <button onclick="switchTab('home')" class="flex items-center gap-3 group text-left">
+                <div class="w-10 h-10 rounded-full bg-lilac-100 border border-lilac-300 flex items-center justify-center text-lilac-500 shadow-sm group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-sparkles text-sm"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-playfair text-lg sm:text-xl font-bold tracking-widest text-plum-900 group-hover:text-lilac-500 transition-colors">GLOBAL EVENTS</span>
+                    <span class="font-garamond text-[10px] tracking-[0.3em] text-plum-500 uppercase font-semibold -mt-1">Luxury Event Curation</span>
+                </div>
+            </button>
+
+            <nav class="hidden md:flex items-center gap-8 text-xs font-semibold tracking-widest uppercase text-plum-800">
+                <button onclick="switchTab('home')" id="nav-home" class="nav-link active hover:text-lilac-500 transition-colors py-1">Home</button>
+                <button onclick="scrollToSection('services')" class="hover:text-lilac-500 transition-colors py-1">Services</button>
+                <button onclick="switchTab('portfolio')" id="nav-portfolio" class="nav-link hover:text-lilac-500 transition-colors py-1">Portfolio</button>
+                <button onclick="scrollToSection('testimonials')" class="hover:text-lilac-500 transition-colors py-1">Testimonials</button>
+                <button onclick="scrollToSection('estimator')" class="hover:text-lilac-500 transition-colors py-1">Estimator</button>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <a href="tel:2143614166" class="hidden sm:flex items-center gap-2 text-xs font-semibold text-plum-900 hover:text-lilac-500 transition-colors px-3.5 py-1.5 rounded-full border border-lilac-300 bg-white/80">
+                    <i class="fa-solid fa-phone text-lilac-400 text-xs"></i> (214) 361-4166
+                </a>
+                <button onclick="scrollToSection('contact')" class="lilac-pill-btn px-5 py-2 text-xs font-bold tracking-widest uppercase text-white rounded-full shadow-sm">
+                    Contact Us
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- VIEW 1: HOME PAGE -->
+    <div id="view-home" class="view-tab transition-opacity duration-300">
+        
+        <!-- Hero Section -->
+        <section class="relative pt-32 pb-14 md:pt-40 md:pb-20 overflow-hidden">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10">
+                
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 border border-lilac-300 text-[10px] sm:text-xs font-semibold tracking-widest uppercase text-plum-800 shadow-sm mb-6">
+                    <i class="fa-solid fa-crown text-lilac-400 text-xs"></i> Frisco, TX • Worldwide Luxury Events
+                </div>
+
+                <h1 class="font-playfair text-4xl sm:text-6xl md:text-7xl font-extrabold text-plum-900 leading-[1.12] mb-5">
+                    Unforgettable Moments, <br>
+                    <span class="font-garamond italic font-normal text-lilac-gradient text-5xl sm:text-7xl md:text-8xl">Curated to Perfection</span>
+                </h1>
+
+                <p class="text-plum-800/80 text-sm sm:text-base md:text-lg font-light max-w-2xl mx-auto leading-relaxed mb-8">
+                    From grand galas and high-fashion galas to intimate estate nuptials, Global Events designs, produces, and executes flawlessly elevated celebrations.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+                    <button onclick="scrollToSection('services')" class="w-full sm:w-auto lilac-pill-btn px-8 py-3.5 text-xs font-bold tracking-widest uppercase text-white rounded-full shadow-sm">
+                        Explore Our Services <i class="fa-solid fa-arrow-down ml-2 text-xs"></i>
+                    </button>
+                    <button onclick="switchTab('portfolio')" class="w-full sm:w-auto px-8 py-3.5 text-xs font-bold tracking-widest uppercase text-plum-900 bg-white hover:bg-lilac-50 border border-lilac-300 rounded-full transition-all shadow-sm">
+                        View Portfolio
+                    </button>
+                </div>
+
+                <!-- Stats Bar -->
+                <div class="mt-12 pt-8 border-t border-lilac-200/80 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto">
+                    <div class="p-2">
+                        <span class="font-playfair text-2xl sm:text-3xl font-bold text-plum-900">14+</span>
+                        <p class="font-garamond text-xs sm:text-sm italic text-lilac-500 font-semibold">Years of Excellence</p>
+                    </div>
+                    <div class="p-2">
+                        <span class="font-playfair text-2xl sm:text-3xl font-bold text-plum-900">500+</span>
+                        <p class="font-garamond text-xs sm:text-sm italic text-lilac-500 font-semibold">Celebrations Designed</p>
+                    </div>
+                    <div class="p-2">
+                        <span class="font-playfair text-2xl sm:text-3xl font-bold text-plum-900">100%</span>
+                        <p class="font-garamond text-xs sm:text-sm italic text-lilac-500 font-semibold">Bespoke Production</p>
+                    </div>
+                    <div class="p-2">
+                        <span class="font-playfair text-2xl sm:text-3xl font-bold text-plum-900">5★</span>
+                        <p class="font-garamond text-xs sm:text-sm italic text-lilac-500 font-semibold">Client Rating</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ENHANCED INTERACTIVE SERVICES SECTION -->
+        <section id="services" class="py-20 bg-silk-200/60 border-y border-lilac-200/60 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                
+                <!-- Section Header -->
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span class="font-garamond text-xl italic font-semibold text-lilac-500">World-Class Event Production</span>
+                    <h2 class="font-playfair text-4xl sm:text-5xl font-extrabold text-plum-900 mt-1">Our Bespoke Services</h2>
+                    <p class="text-plum-800/80 text-xs sm:text-sm font-light leading-relaxed mt-3">
+                        Tailored end-to-end management, immersive floral architecture, spatial lighting, and high-touch VIP guest coordination.
+                    </p>
+
+                    <!-- Filter Tabs -->
+                    <div class="flex flex-wrap justify-center gap-2 mt-8">
+                        <button onclick="filterService('all', this)" class="service-tab-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest border border-lilac-400 bg-plum-900 text-white shadow-sm transition-all">All Capabilities</button>
+                        <button onclick="filterService('wedding', this)" class="service-tab-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest border border-lilac-300 bg-white text-plum-900 hover:bg-lilac-50 transition-all">Luxury Weddings</button>
+                        <button onclick="filterService('gala', this)" class="service-tab-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest border border-lilac-300 bg-white text-plum-900 hover:bg-lilac-50 transition-all">Galas & Soirées</button>
+                        <button onclick="filterService('corporate', this)" class="service-tab-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest border border-lilac-300 bg-white text-plum-900 hover:bg-lilac-50 transition-all">Corporate Summits</button>
+                        <button onclick="filterService('branding', this)" class="service-tab-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest border border-lilac-300 bg-white text-plum-900 hover:bg-lilac-50 transition-all">Experiential Branding</button>
+                    </div>
+                </div>
+
+                <!-- Dynamic Cards Grid -->
+                <div id="services-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Service 1: Luxury Weddings -->
+                    <div class="service-card wedding soft-glass-card rounded-3xl overflow-hidden group flex flex-col justify-between">
+                        <div>
+                            <div class="relative h-60 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Luxury Nuptials" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-plum-900/20 group-hover:bg-lilac-500/20 transition-colors duration-500"></div>
+                                <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md text-plum-900 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-lilac-300/60 shadow-sm">
+                                    <i class="fa-solid fa-heart text-lilac-400 mr-1"></i> Nuptials
+                                </span>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="font-playfair text-2xl font-bold text-plum-900 mb-2">Grand Estate & Destination Weddings</h3>
+                                <p class="text-plum-800/80 text-xs sm:text-sm font-light leading-relaxed mb-4">
+                                    Full-scale architectural floral design, bespoke draping, custom staging, and complete timeline choreography for regal celebrations.
+                                </p>
+                                <!-- Feature Tags -->
+                                <div class="flex flex-wrap gap-1.5 mb-4">
+                                    <span class="px-2.5 py-1 rounded-md bg-lilac-100/70 border border-lilac-200 text-plum-900 text-[10px] font-semibold">Full Planning</span>
+                                    <span class="px-2.5 py-1 rounded-md bg-lilac-100/70 border border-lilac-200 text-plum-900 text-[10px] font-semibold">Floral Sculpting</span>
+                                    <span class="px-2.5 py-1 rounded-md bg-lilac-100/70 border border-lilac-200 text-plum-900 text-[10px] font-semibold">Spatial Design</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0 border-t border-lilac-200/50 flex items-center justify-between">
+                            <span class="text-[11px] font-semibold text-lilac-500 italic font-garamond">Starting Scope: Bespoke</span>
+                            <button onclick="openServiceDetail('wedding')" class="lilac-pill-btn px-4 py-2 text-[10px] font-bold uppercase tracking-widest text-white rounded-xl shadow-sm flex items-center gap-1.5">
+                                Explore Details <i class="fa-solid fa-arrow-right text-[9px]"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Service 2: Galas & Soirées -->
+                    <div class="service-card gala soft-glass-card rounded-3xl overflow-hidden group flex flex-col justify-between">
+                        <div>
+                            <div class="relative h-60 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80" alt="Charity Galas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-plum-900/20 group-hover:bg-lilac-500/20 transition-colors duration-500"></div>
+                                <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md text-plum-900 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-lilac-300/60 shadow-sm">
+                                    <i class="fa-solid fa-glass-champagne text-lilac-400 mr-1"></i> Soirées
+                                </span>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="font-playfair text-2xl font-bold text-plum-900 mb-2">Charity Galas & Philharmonic Balls</h3>
+                                <p class="text-plum-800/80 text-xs sm:text-sm font-light leading-relaxed mb-4">
+                                    Immersive projection mapping, live symphony stage curation, red carpet VIP pathways, and donor-focused guest journeys.
+                                </p>
+                                <div class="flex flex-wrap gap-1.5 mb-4">
+                                    <span class="px-2.5 py-1 rounded-md bg-lilac-100/70 border border-lilac-200 text-plum-900 text-[10px] font-semibold">Red Carpet</span>
+                                    <span class="px-2.5 py-1 rounded-md bg-lilac-100/70 border border-lilac-200 text-plum-900 text-[10px] font-semibold">AV Projection</span>
+                                    <span class="px-2.5 py-1 rounded-md bg-lilac-100/70 border border-lilac-200 text-plum-900 text-[10px] font-semibold">VIP Protocol</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0 border-t border-lilac-200/50 flex items-center justify-between">
+                            <span class="text-[11px] font-semibold text-lilac-500 italic font-garamond">Capacity: 200 - 1,500+</span>
+                            <button onclick="openServiceDetail('gala')" class="lilac-pill-btn px-4 py-2 text-[10px] font-bold uppercase tracking-widest text-white rounded-xl shadow-sm flex items-center gap-1.5">
+                                Explore Details <i class="fa-solid fa-arrow-right text-[9px]"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Service 3: Corporate Summits -->
+                    <div class="service-card corporate soft-glass-card rounded-3xl overflow-hidden group flex flex-col justify-between">
+                        <div>
+                            <div class="relative h-60 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=80" alt="Corporate Summits" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-plum-900/20 group-hover:bg-lilac-500/20 transition-colors duration-500"></div>
+                                <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md text-plum-900 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-lilac-300/60 shadow-sm">
+                                    <i class="fa-solid fa-building-columns text-lilac-400 mr-1"></i> Summit
+                                </span>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="font-playfair text-2xl font-bold text-plum-900 mb-2">Executive Summits & Enterprise Assemblies</h3>
+                                <p class="text-plum-800/80 text-xs sm:text-sm font-light leading-relaxed mb-4">
+                                    Futuristic stage engineering, interactive breakout lounges, broadcast-grade audio-visual systems, and seamless attendee logistics.
+                                </p>
+                                <div class="flex flex-wrap gap-1.5 mb-4">
+                                    <span class="px-2.5 py-1 rounded-md bg-lilac-100/70 border border-lilac-200 text-plum-900 text-[10px] font-semibold">Stage Tech</span>
+                                    <span class="px-2.5 py-1 rounded-md bg-lilac-100/70 border border-lilac-200 text-plum-900 text-[10px] font-semibold">Hybrid Stream</span>
+                                    <span class="px-2.5 py-1 rounded-md bg-lilac-100/70 border border-lilac-200 text-plum-900 text-[10px] font-semibold">Keynote Production</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0 border-t border-lilac-200/50 flex items-center justify-between">
+                            <span class="text-[11px] font-semibold text-lilac-500 italic font-garamond">Turnkey AV & Staging</span>
+                            <button onclick="openServiceDetail('corporate')" class="lilac-pill-btn px-4 py-2 text-[10px] font-bold uppercase tracking-widest text-white rounded-xl shadow-sm flex items-center gap-1.5">
+                                Explore Details <i class="fa-solid fa-arrow-right text-[9px]"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Service 4: Experiential Branding -->
+                    <div class="service-card branding soft-glass-card rounded-3xl overflow-hidden group flex flex-col justify-between">
+                        <div>
+                            <div class="relative h-60 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=800&q=80" alt="Experiential Branding" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-plum-900/20 group-hover:bg-lilac-500/20 transition-colors duration-500"></div>
+                                <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md text-plum-900 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-lilac-300/60 shadow-sm">
+                                    <i class="fa-solid fa-wand-magic-sparkles text-lilac-400 mr-1"></i> Branding
+                                </span>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="font-playfair text-2xl font-bold text-plum-900 mb-2">Luxury Brand Launches & Runway Galas</h3>
+                                <p class="text-plum-800/80 text-xs sm:text-sm font-light leading-relaxed mb-4">
+                                    High-fashion runway staging, custom photo installations, press-ready lighting design, and influencer lounge activations.
+                                </p>
+                                <div class="flex flex-wrap gap-1.5 mb-4">
+                                    <span class="px-2.5 py-1 rounded-md bg-lilac-100/70 border border-lilac-200 text-plum-900 text-[10px] font-semibold">Runway Staging</span>
+                                    <span class="px-2.5 py-1 rounded-md bg-lilac-100/70 border border-lilac-200 text-plum-900 text-[10px] font-semibold">Press Wall</span>
+                                    <span class="px-2.5 py-1 rounded-md bg-lilac-100/70 border border-lilac-200 text-plum-900 text-[10px] font-semibold">Custom Lounge</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0 border-t border-lilac-200/50 flex items-center justify-between">
+                            <span class="text-[11px] font-semibold text-lilac-500 italic font-garamond">High-Impact Press Design</span>
+                            <button onclick="openServiceDetail('branding')" class="lilac-pill-btn px-4 py-2 text-[10px] font-bold uppercase tracking-widest text-white rounded-xl shadow-sm flex items-center gap-1.5">
+                                Explore Details <i class="fa-solid fa-arrow-right text-[9px]"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Service 5: Private Celebrations -->
+                    <div class="service-card wedding soft-glass-card rounded-3xl overflow-hidden group flex flex-col justify-between">
+                        <div>
+                            <div class="relative h-60 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80" alt="Private Celebrations" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-plum-900/20 group-hover:bg-lilac-500/20 transition-colors duration-500"></div>
+                                <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md text-plum-900 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-lilac-300/60 shadow-sm">
+                                    <i class="fa-solid fa-wine-glass text-lilac-400 mr-1"></i> Soirée
+                                </span>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="font-playfair text-2xl font-bold text-plum-900 mb-2">Milestone Jubilees & Estate Dinners</h3>
+                                <p class="text-plum-800/80 text-xs sm:text-sm font-light leading-relaxed mb-4">
+                                    Exclusive private estate anniversary galas, birthday soirees, and intimate multi-course culinary experiences.
+                                </p>
+                                <div class="flex flex-wrap gap-1.5 mb-4">
+                                    <span class="px-2.5 py-1 rounded-md bg-lilac-100/70 border border-lilac-200 text-plum-900 text-[10px] font-semibold">Private Estate</span>
+                                    <span class="px-2.5 py-1 rounded-md bg-lilac-100/70 border border-lilac-200 text-plum-900 text-[10px] font-semibold">Sommelier Curation</span>
+                                    <span class="px-2.5 py-1 rounded-md bg-lilac-100/70 border border-lilac-200 text-plum-900 text-[10px] font-semibold">Acoustic Quartet</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0 border-t border-lilac-200/50 flex items-center justify-between">
+                            <span class="text-[11px] font-semibold text-lilac-500 italic font-garamond">Intimate & High-End</span>
+                            <button onclick="openServiceDetail('private')" class="lilac-pill-btn px-4 py-2 text-[10px] font-bold uppercase tracking-widest text-white rounded-xl shadow-sm flex items-center gap-1.5">
+                                Explore Details <i class="fa-solid fa-arrow-right text-[9px]"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Service 6: Spatial Lighting & Audio -->
+                    <div class="service-card corporate soft-glass-card rounded-3xl overflow-hidden group flex flex-col justify-between">
+                        <div>
+                            <div class="relative h-60 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80" alt="Lighting & AV Systems" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-plum-900/20 group-hover:bg-lilac-500/20 transition-colors duration-500"></div>
+                                <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md text-plum-900 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-lilac-300/60 shadow-sm">
+                                    <i class="fa-solid fa-sliders text-lilac-400 mr-1"></i> Technical
+                                </span>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="font-playfair text-2xl font-bold text-plum-900 mb-2">Architectural Lighting & Spatial Audio</h3>
+                                <p class="text-plum-800/80 text-xs sm:text-sm font-light leading-relaxed mb-4">
+                                    Custom Intelligent lighting choreography, line-array spatial acoustics, and high-resolution crystal LED display walls.
+                                </p>
+                                <div class="flex flex-wrap gap-1.5 mb-4">
+                                    <span class="px-2.5 py-1 rounded-md bg-lilac-100/70 border border-lilac-200 text-plum-900 text-[10px] font-semibold">Line Array Sound</span>
+                                    <span class="px-2.5 py-1 rounded-md bg-lilac-100/70 border border-lilac-200 text-plum-900 text-[10px] font-semibold">Intelligent Light</span>
+                                    <span class="px-2.5 py-1 rounded-md bg-lilac-100/70 border border-lilac-200 text-plum-900 text-[10px] font-semibold">4K LED Walls</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0 border-t border-lilac-200/50 flex items-center justify-between">
+                            <span class="text-[11px] font-semibold text-lilac-500 italic font-garamond">Acoustic Engineering</span>
+                            <button onclick="openServiceDetail('tech')" class="lilac-pill-btn px-4 py-2 text-[10px] font-bold uppercase tracking-widest text-white rounded-xl shadow-sm flex items-center gap-1.5">
+                                Explore Details <i class="fa-solid fa-arrow-right text-[9px]"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- INTERACTIVE BESPOKE SERVICE CUSTOMIZER WIDGET -->
+                <div class="mt-16 soft-glass-card p-6 sm:p-10 rounded-3xl bg-white/90 border border-lilac-300 shadow-xl">
+                    <div class="grid lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-5 space-y-4">
+                            <span class="font-garamond text-lg italic font-semibold text-lilac-500">Tailor-Made Production</span>
+                            <h3 class="font-playfair text-3xl font-extrabold text-plum-900">Bespoke Production Customizer</h3>
+                            <p class="text-plum-800/80 text-xs sm:text-sm font-light leading-relaxed">
+                                Select the specific luxury elements required for your event to build your tailored production profile in real-time.
+                            </p>
+                            
+                            <div class="p-4 rounded-2xl bg-silk-100 border border-lilac-200 text-xs text-plum-800/90 font-medium">
+                                <i class="fa-solid fa-circle-check text-lilac-500 mr-2"></i> Custom selections are instantly calculated and forwarded directly to your personal event director upon submission.
+                            </div>
+                        </div>
+
+                        <!-- Interactive Checklist Grid -->
+                        <div class="lg:col-span-7">
+                            <div class="grid sm:grid-cols-2 gap-3.5" id="customizer-checklist">
+                                
+                                <label class="p-3.5 rounded-2xl bg-silk-100 border border-lilac-200 flex items-center gap-3 cursor-pointer hover:border-lilac-400 transition-all">
+                                    <input type="checkbox" checked onchange="calculateCustomizerScore()" data-value="8500" class="custom-checkbox w-4 h-4 rounded text-lilac-500 focus:ring-0">
+                                    <div>
+                                        <span class="text-xs font-bold text-plum-900 block">3D Spatial Rendering & Cad Design</span>
+                                        <span class="text-[10px] text-lilac-500 font-semibold italic">Included in Consultation</span>
+                                    </div>
+                                </label>
+
+                                <label class="p-3.5 rounded-2xl bg-silk-100 border border-lilac-200 flex items-center gap-3 cursor-pointer hover:border-lilac-400 transition-all">
+                                    <input type="checkbox" checked onchange="calculateCustomizerScore()" data-value="12000" class="custom-checkbox w-4 h-4 rounded text-lilac-500 focus:ring-0">
+                                    <div>
+                                        <span class="text-xs font-bold text-plum-900 block">Architectural Floral Installations</span>
+                                        <span class="text-[10px] text-lilac-500 font-semibold italic">High-Impact Florals</span>
+                                    </div>
+                                </label>
+
+                                <label class="p-3.5 rounded-2xl bg-silk-100 border border-lilac-200 flex items-center gap-3 cursor-pointer hover:border-lilac-400 transition-all">
+                                    <input type="checkbox" onchange="calculateCustomizerScore()" data-value="6500" class="custom-checkbox w-4 h-4 rounded text-lilac-500 focus:ring-0">
+                                    <div>
+                                        <span class="text-xs font-bold text-plum-900 block">Spatial Concert Sound & AV Setup</span>
+                                        <span class="text-[10px] text-lilac-500 font-semibold italic">Acoustic Precision</span>
+                                    </div>
+                                </label>
+
+                                <label class="p-3.5 rounded-2xl bg-silk-100 border border-lilac-200 flex items-center gap-3 cursor-pointer hover:border-lilac-400 transition-all">
+                                    <input type="checkbox" onchange="calculateCustomizerScore()" data-value="4500" class="custom-checkbox w-4 h-4 rounded text-lilac-500 focus:ring-0">
+                                    <div>
+                                        <span class="text-xs font-bold text-plum-900 block">VIP Security & Executive Escort</span>
+                                        <span class="text-[10px] text-lilac-500 font-semibold italic">Discreet Protocol</span>
+                                    </div>
+                                </label>
+
+                                <label class="p-3.5 rounded-2xl bg-silk-100 border border-lilac-200 flex items-center gap-3 cursor-pointer hover:border-lilac-400 transition-all">
+                                    <input type="checkbox" onchange="calculateCustomizerScore()" data-value="9500" class="custom-checkbox w-4 h-4 rounded text-lilac-500 focus:ring-0">
+                                    <div>
+                                        <span class="text-xs font-bold text-plum-900 block">Projection Mapping & Motion Lighting</span>
+                                        <span class="text-[10px] text-lilac-500 font-semibold italic">Dynamic Ambience</span>
+                                    </div>
+                                </label>
+
+                                <label class="p-3.5 rounded-2xl bg-silk-100 border border-lilac-200 flex items-center gap-3 cursor-pointer hover:border-lilac-400 transition-all">
+                                    <input type="checkbox" checked onchange="calculateCustomizerScore()" data-value="5000" class="custom-checkbox w-4 h-4 rounded text-lilac-500 focus:ring-0">
+                                    <div>
+                                        <span class="text-xs font-bold text-plum-900 block">Day-Of Master Choreography Team</span>
+                                        <span class="text-[10px] text-lilac-500 font-semibold italic">Flawless Run-of-Show</span>
+                                    </div>
+                                </label>
+
+                            </div>
+
+                            <!-- Score & Lock CTA -->
+                            <div class="mt-6 p-4 rounded-2xl bg-plum-900 text-white flex flex-col sm:flex-row items-center justify-between gap-4">
+                                <div>
+                                    <span class="text-[10px] uppercase font-bold text-lilac-300 tracking-wider block">Estimated Custom Package Value</span>
+                                    <span id="customizer-price" class="font-playfair text-2xl font-bold text-white">$25,500</span>
+                                </div>
+                                <button onclick="transferCustomizerToForm()" class="w-full sm:w-auto lilac-pill-btn px-6 py-3 text-xs font-bold uppercase tracking-widest text-white rounded-xl shadow-sm">
+                                    Inquire With Selections &rarr;
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- SERVICE PACKAGE COMPARISON MATRIX -->
+                <div class="mt-16">
+                    <div class="text-center max-w-xl mx-auto mb-10">
+                        <span class="font-garamond text-lg italic font-semibold text-lilac-500">Tailored Tiers</span>
+                        <h3 class="font-playfair text-3xl font-extrabold text-plum-900 mt-0.5">Production Package Matrix</h3>
+                        <p class="text-plum-800/75 text-xs sm:text-sm mt-1">Select the ideal tier of production leadership for your event.</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-6">
+                        
+                        <!-- Tier 1 -->
+                        <div class="soft-glass-card p-7 rounded-3xl bg-white/90 flex flex-col justify-between border border-lilac-200 relative">
+                            <div>
+                                <span class="text-[10px] font-bold uppercase tracking-widest text-lilac-500 block mb-1">Level I</span>
+                                <h4 class="font-playfair text-2xl font-bold text-plum-900 mb-2">Essential Curation</h4>
+                                <p class="text-plum-800/80 text-xs font-light mb-6">Designed for intimacy and sleek sophistication for up to 100 guests.</p>
+                                
+                                <ul class="space-y-3 text-xs text-plum-900/90 mb-8 border-t border-lilac-200/60 pt-4">
+                                    <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-lilac-400"></i> Full Day-of Coordination Team</li>
+                                    <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-lilac-400"></i> Vendor & Artist Management</li>
+                                    <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-lilac-400"></i> Floorplan & Timeline Design</li>
+                                    <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-lilac-400"></i> Custom Soft Lighting Package</li>
+                                    <li class="flex items-center gap-2.5 text-plum-800/40 line-through"><i class="fa-solid fa-xmark"></i> 3D Spatial Floorplan Pre-renders</li>
+                                    <li class="flex items-center gap-2.5 text-plum-800/40 line-through"><i class="fa-solid fa-xmark"></i> VIP Concierge & Escort Team</li>
+                                </ul>
+                            </div>
+                            <button onclick="selectPackageTier('Essential Curation')" class="w-full py-3 rounded-xl border border-lilac-300 bg-silk-100 hover:bg-lilac-50 text-plum-900 font-bold text-xs uppercase tracking-widest transition-colors">
+                                Choose Essential
+                            </button>
+                        </div>
+
+                        <!-- Tier 2: Highlighted -->
+                        <div class="soft-glass-card p-7 rounded-3xl bg-white/95 flex flex-col justify-between border-2 border-lilac-400 shadow-xl relative scale-102">
+                            <span class="absolute -top-3.5 right-6 bg-lilac-500 text-white text-[9px] font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-sm">
+                                Most Popular Choice
+                            </span>
+                            <div>
+                                <span class="text-[10px] font-bold uppercase tracking-widest text-lilac-500 block mb-1">Level II</span>
+                                <h4 class="font-playfair text-2xl font-bold text-plum-900 mb-2">Signature Sovereign</h4>
+                                <p class="text-plum-800/80 text-xs font-light mb-6">Complete end-to-end luxury production for up to 300 guests.</p>
+                                
+                                <ul class="space-y-3 text-xs text-plum-900/90 mb-8 border-t border-lilac-200/60 pt-4">
+                                    <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-lilac-400"></i> Full Production Leadership</li>
+                                    <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-lilac-400"></i> Custom Floral & Scenic Architecture</li>
+                                    <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-lilac-400"></i> 3D Spatial CAD Pre-rendering</li>
+                                    <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-lilac-400"></i> Intelligent Stage & Concert Lighting</li>
+                                    <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-lilac-400"></i> Guest Experience Protocol Management</li>
+                                    <li class="flex items-center gap-2.5 text-plum-800/40 line-through"><i class="fa-solid fa-xmark"></i> International Celebrity Booking Protocol</li>
+                                </ul>
+                            </div>
+                            <button onclick="selectPackageTier('Signature Sovereign')" class="w-full lilac-pill-btn py-3 rounded-xl text-white font-bold text-xs uppercase tracking-widest shadow-sm">
+                                Choose Signature
+                            </button>
+                        </div>
+
+                        <!-- Tier 3 -->
+                        <div class="soft-glass-card p-7 rounded-3xl bg-white/90 flex flex-col justify-between border border-lilac-200 relative">
+                            <div>
+                                <span class="text-[10px] font-bold uppercase tracking-widest text-lilac-500 block mb-1">Level III</span>
+                                <h4 class="font-playfair text-2xl font-bold text-plum-900 mb-2">Bespoke Sovereign</h4>
+                                <p class="text-plum-800/80 text-xs font-light mb-6">Unrestricted, white-glove event orchestration for global high-profile assemblies.</p>
+                                
+                                <ul class="space-y-3 text-xs text-plum-900/90 mb-8 border-t border-lilac-200/60 pt-4">
+                                    <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-lilac-400"></i> Unlimited Dedicated Executive Team</li>
+                                    <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-lilac-400"></i> Worldwide Destination Coordination</li>
+                                    <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-lilac-400"></i> Full Projection Mapping & Spatial Sound</li>
+                                    <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-lilac-400"></i> VIP Security & Private Charter Escort</li>
+                                    <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-lilac-400"></i> Celebrity Entertainment Curation</li>
+                                    <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-lilac-400"></i> White-Glove Concierge Team</li>
+                                </ul>
+                            </div>
+                            <button onclick="selectPackageTier('Bespoke Sovereign')" class="w-full py-3 rounded-xl border border-lilac-300 bg-silk-100 hover:bg-lilac-50 text-plum-900 font-bold text-xs uppercase tracking-widest transition-colors">
+                                Choose Bespoke
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS SECTION ON HOME PAGE -->
+        <section id="testimonials" class="py-16">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                
+                <div class="text-center max-w-xl mx-auto mb-10">
+                    <span class="font-garamond text-lg italic font-semibold text-lilac-500">Love Letters & Praise</span>
+                    <h2 class="font-playfair text-3xl sm:text-4xl font-bold text-plum-900 mt-0.5">What Our Clients Say</h2>
+                    <p class="text-plum-800/75 text-xs sm:text-sm mt-2 font-light">Real words from couples, corporate directors, and gala chairs who trusted Global Events.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6">
+                    
+                    <div class="soft-glass-card p-7 rounded-3xl bg-white/90 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-1 text-lilac-400 mb-4 text-xs">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="font-garamond italic text-base sm:text-lg text-plum-900 leading-relaxed mb-6">
+                                "Global Events turned our estate wedding in Frisco into a fairytale. The soft lavender floral installations, custom lighting, and seamless execution were beyond what we ever imagined."
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-3 pt-4 border-t border-lilac-200/60">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" alt="Eleanor Vance" class="w-11 h-11 rounded-full object-cover border-2 border-lilac-300">
+                            <div>
+                                <h4 class="font-playfair font-bold text-sm text-plum-900">Eleanor & Julian Vance</h4>
+                                <span class="text-[10px] font-semibold tracking-wider text-lilac-500 uppercase">Private Estate Nuptials • Frisco, TX</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="soft-glass-card p-7 rounded-3xl bg-white/90 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-1 text-lilac-400 mb-4 text-xs">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="font-garamond italic text-base sm:text-lg text-plum-900 leading-relaxed mb-6">
+                                "Organizing our annual Philharmonic Gala with over 400 VIP guests was completely stress-free. Global Events handled every detail with refined taste and perfection."
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-3 pt-4 border-t border-lilac-200/60">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" alt="Marcus Sterling" class="w-11 h-11 rounded-full object-cover border-2 border-lilac-300">
+                            <div>
+                                <h4 class="font-playfair font-bold text-sm text-plum-900">Marcus Sterling</h4>
+                                <span class="text-[10px] font-semibold tracking-wider text-lilac-500 uppercase">Philharmonic Society Chair • Dallas, TX</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="soft-glass-card p-7 rounded-3xl bg-white/90 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-1 text-lilac-400 mb-4 text-xs">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="font-garamond italic text-base sm:text-lg text-plum-900 leading-relaxed mb-6">
+                                "The level of elegance they brought to our global executive summit in Plano exceeded our board's expectations. Truly world-class luxury production."
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-3 pt-4 border-t border-lilac-200/60">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80" alt="Sophia Chen" class="w-11 h-11 rounded-full object-cover border-2 border-lilac-300">
+                            <div>
+                                <h4 class="font-playfair font-bold text-sm text-plum-900">Sophia Chen</h4>
+                                <span class="text-[10px] font-semibold tracking-wider text-lilac-500 uppercase">VP of Brand Experience • Plano, TX</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Quick Cost Estimator -->
+        <section id="estimator" class="py-14 bg-silk-200/60 border-t border-lilac-200/60">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6">
+                
+                <div class="text-center mb-7">
+                    <span class="font-garamond text-lg italic font-semibold text-lilac-500">Transparent Planning</span>
+                    <h2 class="font-playfair text-3xl font-bold text-plum-900 mt-0.5">Quick Event Budget Estimator</h2>
+                    <p class="text-plum-800/75 text-xs mt-1">Select your event type and estimated guest count for an instant budget projection.</p>
+                </div>
+
+                <div class="soft-glass-card p-6 sm:p-8 rounded-3xl bg-white/95">
+                    <div class="space-y-6">
+                        
+                        <div>
+                            <label class="block text-[10px] font-bold uppercase tracking-widest text-plum-800 mb-2.5">1. Event Category</label>
+                            <div class="grid grid-cols-3 gap-3">
+                                <button type="button" onclick="selectType('Wedding', this)" class="type-btn p-3 rounded-xl border border-lilac-400 bg-plum-900 text-white text-xs font-semibold shadow-sm">Wedding</button>
+                                <button type="button" onclick="selectType('Gala', this)" class="type-btn p-3 rounded-xl border border-lilac-300 bg-silk-100 text-plum-900 text-xs font-semibold hover:bg-lilac-50 transition-colors">Gala</button>
+                                <button type="button" onclick="selectType('Corporate', this)" class="type-btn p-3 rounded-xl border border-lilac-300 bg-silk-100 text-plum-900 text-xs font-semibold hover:bg-lilac-50 transition-colors">Corporate</button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <label class="text-[10px] font-bold uppercase tracking-widest text-plum-800">2. Guest Count</label>
+                                <span id="guest-count-label" class="font-playfair font-bold text-lilac-500 text-lg">150 Guests</span>
+                            </div>
+                            <input type="range" id="guest-slider" min="30" max="600" step="10" value="150" oninput="updateEstimate()" class="w-full accent-lilac-500 h-2.5 bg-lilac-100 rounded-lg cursor-pointer">
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-silk-100 border border-lilac-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+                            <div>
+                                <span class="text-[10px] uppercase font-bold text-plum-800 tracking-wider block">Estimated Scope</span>
+                                <div id="estimated-cost-text" class="font-playfair text-2xl sm:text-3xl font-bold text-lilac-500">$18,500 - $24,000</div>
+                            </div>
+                            <button type="button" onclick="lockEstimateAndScroll()" class="w-full sm:w-auto lilac-pill-btn px-6 py-3 text-xs font-bold uppercase tracking-widest text-white rounded-xl shadow-sm">
+                                Send Detail To Consultation &rarr;
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!-- VIEW 2: PORTFOLIO PAGE -->
+    <div id="view-portfolio" class="view-tab hidden transition-opacity duration-300 pt-28 pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="font-garamond text-xl italic font-semibold text-lilac-500">Curated Showcase</span>
+                <h1 class="font-playfair text-4xl sm:text-5xl md:text-6xl font-extrabold text-plum-900 mt-1">Our Featured Portfolio</h1>
+                <p class="text-plum-800/80 text-xs sm:text-sm mt-3 leading-relaxed font-light">
+                    Explore a curated selection of royal weddings, philharmonic galas, and high-fashion corporate events produced by Global Events across Dallas-Fort Worth and international destinations.
+                </p>
+
+                <div class="flex flex-wrap justify-center gap-2 mt-8">
+                    <button onclick="filterPortfolio('all', this)" class="port-filter-btn px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest border border-lilac-400 bg-plum-900 text-white shadow-sm">All Creations</button>
+                    <button onclick="filterPortfolio('wedding', this)" class="port-filter-btn px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest border border-lilac-300 bg-white text-plum-900 hover:bg-lilac-50">Nuptials</button>
+                    <button onclick="filterPortfolio('gala', this)" class="port-filter-btn px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest border border-lilac-300 bg-white text-plum-900 hover:bg-lilac-50">Galas & Soirées</button>
+                    <button onclick="filterPortfolio('corporate', this)" class="port-filter-btn px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest border border-lilac-300 bg-white text-plum-900 hover:bg-lilac-50">Corporate Summits</button>
+                </div>
+            </div>
+
+            <div id="portfolio-cards-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="port-card wedding soft-glass-card rounded-3xl overflow-hidden group flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=80" alt="Lilac Estate Wedding" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <span class="absolute top-4 left-4 bg-plum-900/80 backdrop-blur-md text-lilac-200 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-lilac-300/40">Weddings</span>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-xs font-semibold text-lilac-500 italic font-garamond">Private Estate • Frisco, TX</span>
+                            <h3 class="font-playfair text-2xl font-bold text-plum-900 mt-1 mb-2">The Lavender Veil Estate Nuptials</h3>
+                            <p class="text-plum-800/80 text-xs sm:text-sm font-light leading-relaxed mb-4">
+                                An ethereal outdoor ceremony featuring cascading lilac orchid arches, custom velvet seating, candlelit botanical pathways, and a 200-guest tented glass reception.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-0 flex items-center justify-between border-t border-lilac-200/50 mt-2">
+                        <span class="text-[11px] font-medium text-plum-800">Clients: <strong class="font-semibold text-plum-900">Eleanor & Julian</strong></span>
+                        <button onclick="openLightbox('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80', 'The Lavender Veil Estate Nuptials', 'Frisco, TX • Weddings')" class="text-xs font-bold text-lilac-500 hover:text-plum-900 transition-colors uppercase tracking-wider flex items-center gap-1">
+                            Expand <i class="fa-solid fa-expand text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="port-card gala soft-glass-card rounded-3xl overflow-hidden group flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1000&q=80" alt="Philharmonic Soirée" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <span class="absolute top-4 left-4 bg-plum-900/80 backdrop-blur-md text-lilac-200 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-lilac-300/40">Gala</span>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-xs font-semibold text-lilac-500 italic font-garamond">Meyerson Symphony Center • Dallas, TX</span>
+                            <h3 class="font-playfair text-2xl font-bold text-plum-900 mt-1 mb-2">Soft Orchid Philharmonic Gala</h3>
+                            <p class="text-plum-800/80 text-xs sm:text-sm font-light leading-relaxed mb-4">
+                                High-profile donor gala for 450 guests. Orchestrated with custom lavender projection mapping, 30-foot floral ceiling chandeliers, and a multi-course gourmet experience.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-0 flex items-center justify-between border-t border-lilac-200/50 mt-2">
+                        <span class="text-[11px] font-medium text-plum-800">Chair: <strong class="font-semibold text-plum-900">Marcus Sterling</strong></span>
+                        <button onclick="openLightbox('https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80', 'Soft Orchid Philharmonic Gala', 'Dallas, TX • Galas')" class="text-xs font-bold text-lilac-500 hover:text-plum-900 transition-colors uppercase tracking-wider flex items-center gap-1">
+                            Expand <i class="fa-solid fa-expand text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="port-card corporate soft-glass-card rounded-3xl overflow-hidden group flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1000&q=80" alt="Executive Brand Unveiling" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <span class="absolute top-4 left-4 bg-plum-900/80 backdrop-blur-md text-lilac-200 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-lilac-300/40">Corporate</span>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-xs font-semibold text-lilac-500 italic font-garamond">Legacy West Centre • Plano, TX</span>
+                            <h3 class="font-playfair text-2xl font-bold text-plum-900 mt-1 mb-2">Global Executive Innovation Summit</h3>
+                            <p class="text-plum-800/80 text-xs sm:text-sm font-light leading-relaxed mb-4">
+                                A 3-day executive summit for international technology leaders, featuring futuristic keynote staging, interactive lounge pods, and intimate VIP dinners.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-0 flex items-center justify-between border-t border-lilac-200/50 mt-2">
+                        <span class="text-[11px] font-medium text-plum-800">Director: <strong class="font-semibold text-plum-900">Sophia Chen</strong></span>
+                        <button onclick="openLightbox('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1200&q=80', 'Global Executive Innovation Summit', 'Plano, TX • Corporate')" class="text-xs font-bold text-lilac-500 hover:text-plum-900 transition-colors uppercase tracking-wider flex items-center gap-1">
+                            Expand <i class="fa-solid fa-expand text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-14 bg-silk-200/80 border-t border-lilac-200/80">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="grid md:grid-cols-12 gap-8 items-start">
+                
+                <div class="md:col-span-5 space-y-6">
+                    <div>
+                        <span class="font-garamond text-lg italic font-semibold text-lilac-500">Connect With Our Directors</span>
+                        <h2 class="font-playfair text-3xl sm:text-4xl font-bold text-plum-900 mt-0.5">Let's Create Your Vision</h2>
+                    </div>
+
+                    <div class="space-y-3.5 text-xs">
+                        <a href="tel:2143614166" class="flex items-center gap-3.5 p-3.5 rounded-2xl bg-white border border-lilac-200 hover:border-lilac-400 transition-all shadow-sm">
+                            <div class="w-9 h-9 rounded-full bg-lilac-100 text-lilac-500 flex items-center justify-center text-sm shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <span class="text-[9px] uppercase font-bold text-plum-800 block tracking-wider">Direct Consultation</span>
+                                <span class="text-sm font-bold text-plum-900">(214) 361-4166</span>
+                            </div>
+                        </a>
+
+                        <div class="flex items-center justify-between p-3.5 rounded-2xl bg-white border border-lilac-200 shadow-sm">
+                            <div class="flex items-center gap-3.5">
+                                <div class="w-9 h-9 rounded-full bg-lilac-100 text-lilac-500 flex items-center justify-center text-sm shrink-0">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <span class="text-[9px] uppercase font-bold text-plum-800 block tracking-wider">Frisco Studio Headquarters</span>
+                                    <span class="text-xs font-medium text-plum-900">2591 Dallas Pkwy Ste. 300, Frisco, TX 75034</span>
+                                </div>
+                            </div>
+                            <button onclick="openMapModal()" class="text-[10px] font-bold text-lilac-500 hover:underline uppercase shrink-0 ml-2">Map</button>
+                        </div>
+
+                        <div class="flex gap-2.5 pt-1">
+                            <a href="https://www.facebook.com/GlobalEventsWorldWide" target="_blank" rel="noopener" class="flex-1 py-2.5 px-3 rounded-2xl bg-white border border-lilac-200 flex items-center justify-center gap-2 font-semibold text-plum-900 hover:text-lilac-500 transition-colors shadow-sm text-xs">
+                                <i class="fa-brands fa-facebook-f text-lilac-400"></i> Facebook
+                            </a>
+                            <a href="https://www.instagram.com/globaleventsworldwide/" target="_blank" rel="noopener" class="flex-1 py-2.5 px-3 rounded-2xl bg-white border border-lilac-200 flex items-center justify-center gap-2 font-semibold text-plum-900 hover:text-lilac-500 transition-colors shadow-sm text-xs">
+                                <i class="fa-brands fa-instagram text-lilac-400"></i> Instagram
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:col-span-7">
+                    <div class="soft-glass-card p-6 sm:p-8 rounded-3xl bg-white/95">
+                        <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                            <div class="grid sm:grid-cols-2 gap-3.5">
+                                <div>
+                                    <label class="block text-[10px] font-bold uppercase tracking-wider text-plum-800 mb-1">Full Name *</label>
+                                    <input type="text" required placeholder="Jane Doe" class="w-full bg-silk-100 border border-lilac-200 rounded-xl p-3 text-xs focus:outline-none focus:border-lilac-400">
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-bold uppercase tracking-wider text-plum-800 mb-1">Email Address *</label>
+                                    <input type="email" required placeholder="jane@example.com" class="w-full bg-silk-100 border border-lilac-200 rounded-xl p-3 text-xs focus:outline-none focus:border-lilac-400">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-[10px] font-bold uppercase tracking-wider text-plum-800 mb-1">Event Inquiries & Notes</label>
+                                <textarea id="inquiry-msg" rows="4" placeholder="Tell us about your event date, estimated guests, and vision..." class="w-full bg-silk-100 border border-lilac-200 rounded-xl p-3 text-xs focus:outline-none focus:border-lilac-400"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full lilac-pill-btn py-3.5 text-xs font-bold uppercase tracking-widest text-white rounded-xl shadow-sm">
+                                Submit Consultation Request
+                            </button>
+
+                            <div id="form-feedback" class="hidden p-3 rounded-xl bg-lilac-100 text-plum-900 text-xs text-center font-medium">
+                                Thank you! Our event director will review your inquiry and connect with you shortly.
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-plum-900 text-silk-100 border-t border-lilac-300/30 text-center text-xs font-light">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <span class="font-playfair text-base font-bold tracking-widest text-lilac-300">GLOBAL EVENTS</span>
+                <span class="text-xs text-lilac-200/80">• Frisco, TX Studio</span>
+            </div>
+            <p class="text-[11px] text-lilac-200/70">&copy; <span id="copyright-year"></span> Global Events World Wide. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- SERVICE DETAIL MODAL / DRAWER -->
+    <div id="service-modal" class="fixed inset-0 z-50 bg-plum-900/80 backdrop-blur-md hidden flex items-center justify-center p-4 overflow-y-auto" onclick="closeServiceModal()">
+        <div class="bg-white max-w-2xl w-full rounded-3xl overflow-hidden shadow-2xl border border-lilac-300 relative my-8" onclick="event.stopPropagation()">
+            <div class="relative h-48 sm:h-56">
+                <img id="svc-modal-img" src="" alt="Service" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-plum-900 via-plum-900/40 to-transparent"></div>
+                <button onclick="closeServiceModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/20 hover:bg-white/40 text-white flex items-center justify-center backdrop-blur-md">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+                <div class="absolute bottom-4 left-6 right-6 text-white">
+                    <span id="svc-modal-tag" class="text-[10px] font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full bg-lilac-500 text-white inline-block mb-1">Category</span>
+                    <h3 id="svc-modal-title" class="font-playfair text-2xl sm:text-3xl font-bold">Service Title</h3>
+                </div>
+            </div>
+            <div class="p-6 sm:p-8 space-y-5 text-xs text-plum-900">
+                <p id="svc-modal-desc" class="text-plum-800/90 text-sm font-light leading-relaxed"></p>
+
+                <!-- Included Features Breakdown -->
+                <div>
+                    <h4 class="font-playfair text-sm font-bold uppercase tracking-wider text-plum-900 mb-2.5">Key Deliverables & Included Features</h4>
+                    <div id="svc-modal-features" class="grid sm:grid-cols-2 gap-2 text-xs"></div>
+                </div>
+
+                <!-- Sample Timeline -->
+                <div class="p-4 rounded-2xl bg-silk-100 border border-lilac-200">
+                    <h4 class="font-playfair text-xs font-bold uppercase tracking-wider text-lilac-500 mb-2">Production Timeline & Milestones</h4>
+                    <div id="svc-modal-timeline" class="space-y-1.5 text-plum-800/80 font-light"></div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex items-center justify-between pt-3 border-t border-lilac-200">
+                    <div>
+                        <span class="text-[10px] font-bold uppercase text-plum-500 block">Starting Budget Tier</span>
+                        <span id="svc-modal-budget" class="font-playfair text-lg font-bold text-lilac-500">Custom Scope</span>
+                    </div>
+                    <button onclick="bookServiceFromModal()" class="lilac-pill-btn px-6 py-3 text-xs font-bold uppercase tracking-widest text-white rounded-xl shadow-sm">
+                        Inquire For This Service &rarr;
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 z-50 bg-plum-900/95 backdrop-blur-md hidden flex items-center justify-center p-4" onclick="closeLightbox()">
+        <div class="max-w-4xl w-full text-center space-y-3" onclick="event.stopPropagation()">
+            <img id="lightbox-img" src="" alt="Preview" class="max-h-[75vh] mx-auto rounded-2xl border border-lilac-300/40 object-contain shadow-2xl">
+            <h3 id="lightbox-caption" class="font-playfair text-2xl text-white font-bold"></h3>
+            <p id="lightbox-sub" class="text-xs text-lilac-300 font-medium uppercase tracking-widest"></p>
+            <button onclick="closeLightbox()" class="mt-2 px-5 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs uppercase tracking-widest border border-white/20">Close</button>
+        </div>
+    </div>
+
+    <!-- Map Modal -->
+    <div id="map-modal" class="fixed inset-0 z-50 bg-plum-900/80 backdrop-blur-md hidden flex items-center justify-center p-4" onclick="closeMapModal()">
+        <div class="bg-white max-w-2xl w-full rounded-3xl overflow-hidden shadow-2xl border border-lilac-300" onclick="event.stopPropagation()">
+            <div class="p-4 bg-plum-900 text-white flex justify-between items-center">
+                <span class="font-playfair text-sm font-bold">2591 Dallas Pkwy Ste. 300, Frisco, TX 75034</span>
+                <button onclick="closeMapModal()" class="text-lilac-300 hover:text-white"><i class="fa-solid fa-xmark text-xl"></i></button>
+            </div>
+            <div class="h-80 w-full">
+                <iframe title="Global Events Location Map" src="https://maps.google.com/maps?q=2591%20Dallas%20Pkwy%20Ste.%20300,%20Frisco,%20TX%2075034&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
+        // Router Navigation Logic
+        function switchTab(tabName) {
+            document.querySelectorAll('.view-tab').forEach(view => {
+                view.classList.add('hidden');
+            });
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+
+            if (tabName === 'home') {
+                document.getElementById('view-home').classList.remove('hidden');
+                document.getElementById('nav-home').classList.add('active');
+            } else if (tabName === 'portfolio') {
+                document.getElementById('view-portfolio').classList.remove('hidden');
+                document.getElementById('nav-portfolio').classList.add('active');
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function scrollToSection(sectionId) {
+            if (document.getElementById('view-home').classList.contains('hidden')) {
+                switchTab('home');
+                setTimeout(() => {
+                    const elem = document.getElementById(sectionId);
+                    if (elem) elem.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+            } else {
+                const elem = document.getElementById(sectionId);
+                if (elem) elem.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Service Category Filtering
+        function filterService(category, btnElement) {
+            document.querySelectorAll('.service-tab-btn').forEach(btn => {
+                btn.classList.remove('bg-plum-900', 'text-white');
+                btn.classList.add('bg-white', 'text-plum-900');
+            });
+            btnElement.classList.add('bg-plum-900', 'text-white');
+            btnElement.classList.remove('bg-white', 'text-plum-900');
+
+            document.querySelectorAll('.service-card').forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Service Modal Detailed Data
+        const serviceData = {
+            wedding: {
+                title: "Grand Estate & Destination Weddings",
+                category: "Luxury Nuptials",
+                img: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80",
+                desc: "Complete architectural floral design, bespoke drapery installations, 3D CAD spatial planning, and high-touch day-of master choreography for premier estate nuptials.",
+                features: [
+                    "3D CAD Spatial Floorplan Pre-renders",
+                    "Custom Botanical & Orchid Arches",
+                    "Acoustic & String Quartet Staging",
+                    "Guest Concierge Protocol & RSVP",
+                    "Tented Canopy & Chandelier Rigging",
+                    "Private Sommelier & Menu Pairing"
+                ],
+                timeline: [
+                    "Phase 1: Concept Boarding & 3D Spatial CAD (Months 12-9)",
+                    "Phase 2: Vendor Curation & Tastings (Months 8-6)",
+                    "Phase 3: Structural Fabrication & Rehearsal (Weeks 4-1)"
+                ],
+                budget: "$25,000+"
+            },
+            gala: {
+                title: "Charity Galas & Philharmonic Soirées",
+                category: "High-Profile Soirées",
+                img: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80",
+                desc: "Seamless management for donor galas up to 1,500+ guests featuring custom soft projection mapping, red-carpet VIP pathways, and auction staging.",
+                features: [
+                    "VIP Escort Protocol & Red Carpet",
+                    "Custom Projection Mapping",
+                    "Donor Benefit Stage Production",
+                    "Live Symphony & Sound Engineering",
+                    "Press Wall & Media Lounge",
+                    "Multi-Course Banquet Choreography"
+                ],
+                timeline: [
+                    "Phase 1: Committee Alignment & Themeing (Months 8-6)",
+                    "Phase 2: Production Rigging & AV Mapping (Months 5-2)",
+                    "Phase 3: Executive Rehearsal & Live Show (Day 0)"
+                ],
+                budget: "$35,000+"
+            },
+            corporate: {
+                title: "Executive Summits & Enterprise Assemblies",
+                category: "Corporate Excellence",
+                img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1200&q=80",
+                desc: "High-level corporate conferences featuring futuristic stage engineering, interactive breakout pods, broadcast-grade AV, and executive dining.",
+                features: [
+                    "Broadcast Quality LED Walls & AV",
+                    "Executive Keynote Stage Engineering",
+                    "Interactive Breakout Pod Curation",
+                    "Global Live Streaming Integration",
+                    "Security & Private Transport Escort",
+                    "Post-Summit Executive Lounge"
+                ],
+                timeline: [
+                    "Phase 1: Agenda & Tech Architecture (Months 6-4)",
+                    "Phase 2: Speaker Dry Runs & Stage Build (Months 3-1)",
+                    "Phase 3: Live Broadcast Production (Days 1-3)"
+                ],
+                budget: "$20,000+"
+            },
+            branding: {
+                title: "Luxury Brand Launches & Runway Galas",
+                category: "Experiential Branding",
+                img: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1200&q=80",
+                desc: "Couture runway staging, media-ready lighting design, interactive product display lounges, and high-impact press experiences.",
+                features: [
+                    "Mirrored Fashion Catwalks",
+                    "Soft Ambient Press Lighting",
+                    "Influencer Lounge Activations",
+                    "Branded Sensory Installations",
+                    "VIP Cocktail Curation",
+                    "High-Speed Press Media Hub"
+                ],
+                timeline: [
+                    "Phase 1: Creative Direction & Press Strategy (Months 4-3)",
+                    "Phase 2: Custom Fabrication & Runway Test (Months 2-1)",
+                    "Phase 3: VIP Launch Night Execution (Day 0)"
+                ],
+                budget: "$30,000+"
+            },
+            private: {
+                title: "Milestone Jubilees & Private Estate Dinners",
+                category: "Private Celebrations",
+                img: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1200&q=80",
+                desc: "Ultra-exclusive private estate anniversary soirees, birthday jubilees, and intimate multi-course culinary evenings designed with privacy.",
+                features: [
+                    "Estate Landscaping Transformation",
+                    "Private Sommelier Wine Pairings",
+                    "Acoustic Ensemble Performances",
+                    "Candlelit Botanical Table Scapes",
+                    "Discreet VIP Security Escort",
+                    "Valet & Transport Coordination"
+                ],
+                timeline: [
+                    "Phase 1: Estate Inspection & Tasting (Months 3-2)",
+                    "Phase 2: Custom Lighting & Floral Sourcing (Month 1)",
+                    "Phase 3: Day-Of Private Dining Service"
+                ],
+                budget: "$15,000+"
+            },
+            tech: {
+                title: "Architectural Lighting & Spatial Audio",
+                category: "Technical Production",
+                img: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80",
+                desc: "State-of-the-art concert acoustics, wireless intelligent moving light fixtures, high-resolution LED panels, and precise technical engineering.",
+                features: [
+                    "Wireless Intelligent Lighting Rigging",
+                    "Line-Array Spatial Acoustic Design",
+                    "4K High-Refresh LED Displays",
+                    "Silent Generator & Power Backup",
+                    "Custom Laser & Haze FX Design",
+                    "Certified Structural Technicians"
+                ],
+                timeline: [
+                    "Phase 1: Acoustic Simulation & Structural Calculation",
+                    "Phase 2: Load-In & Rigging Certification",
+                    "Phase 3: Live Technical Cue Management"
+                ],
+                budget: "$12,000+"
+            }
+        };
+
+        let currentActiveServiceModal = null;
+
+        function openServiceDetail(serviceKey) {
+            const data = serviceData[serviceKey];
+            if (!data) return;
+
+            currentActiveServiceModal = data;
+
+            document.getElementById('svc-modal-img').src = data.img;
+            document.getElementById('svc-modal-tag').innerText = data.category;
+            document.getElementById('svc-modal-title').innerText = data.title;
+            document.getElementById('svc-modal-desc').innerText = data.desc;
+            document.getElementById('svc-modal-budget').innerText = data.budget;
+
+            const featContainer = document.getElementById('svc-modal-features');
+            featContainer.innerHTML = data.features.map(f => 
+                `<div class="flex items-center gap-2 font-medium text-plum-900"><i class="fa-solid fa-circle-check text-lilac-500"></i> ${f}</div>`
+            ).join('');
+
+            const timeContainer = document.getElementById('svc-modal-timeline');
+            timeContainer.innerHTML = data.timeline.map(t => `<p>• ${t}</p>`).join('');
+
+            document.getElementById('service-modal').classList.remove('hidden');
+        }
+
+        function closeServiceModal() {
+            document.getElementById('service-modal').classList.add('hidden');
+        }
+
+        function bookServiceFromModal() {
+            closeServiceModal();
+            if (currentActiveServiceModal) {
+                const msg = document.getElementById('inquiry-msg');
+                msg.value = `Inquiry for Service: ${currentActiveServiceModal.title}\nCategory: ${currentActiveServiceModal.category}\nEstimated Scope: ${currentActiveServiceModal.budget}`;
+            }
+            scrollToSection('contact');
+        }
+
+        // Customizer Checklist Calculation
+        function calculateCustomizerScore() {
+            let total = 0;
+            document.querySelectorAll('#customizer-checklist input[type="checkbox"]:checked').forEach(cb => {
+                total += parseInt(cb.getAttribute('data-value') || '0');
+            });
+
+            document.getElementById('customizer-price').innerText = `$${total.toLocaleString()}`;
+        }
+
+        function transferCustomizerToForm() {
+            let selectedList = [];
+            document.querySelectorAll('#customizer-checklist input[type="checkbox"]:checked').forEach(cb => {
+                const title = cb.closest('label').querySelector('.text-xs').innerText;
+                selectedList.push(title);
+            });
+
+            const val = document.getElementById('customizer-price').innerText;
+            const msg = document.getElementById('inquiry-msg');
+            msg.value = `Customizer Package Breakdown:\n- Total Estimated Value: ${val}\n- Selected Features:\n  * ${selectedList.join('\n  * ')}`;
+
+            scrollToSection('contact');
+        }
+
+        function selectPackageTier(tierName) {
+            const msg = document.getElementById('inquiry-msg');
+            msg.value = `Inquiry for Package Tier: ${tierName}\nI would like to discuss full scope options for this tier.`;
+            scrollToSection('contact');
+        }
+
+        // Estimator Calculation Logic
+        let currentType = 'Wedding';
+
+        function selectType(type, element) {
+            currentType = type;
+            document.querySelectorAll('.type-btn').forEach(btn => {
+                btn.classList.remove('bg-plum-900', 'text-white');
+                btn.classList.add('bg-silk-100', 'text-plum-900');
+            });
+            element.classList.add('bg-plum-900', 'text-white');
+            element.classList.remove('bg-silk-100', 'text-plum-900');
+            updateEstimate();
+        }
+
+        function updateEstimate() {
+            const guests = document.getElementById('guest-slider').value;
+            document.getElementById('guest-count-label').innerText = `${guests} Guests`;
+
+            let rate = 135;
+            if (currentType === 'Gala') rate = 120;
+            if (currentType === 'Corporate') rate = 105;
+
+            const baseCost = guests * rate;
+            const low = Math.round(baseCost * 0.9);
+            const high = Math.round(baseCost * 1.15);
+
+            document.getElementById('estimated-cost-text').innerText = 
+                `$${low.toLocaleString()} - $${high.toLocaleString()}`;
+        }
+
+        function filterPortfolio(category, btnElement) {
+            document.querySelectorAll('.port-filter-btn').forEach(btn => {
+                btn.classList.remove('bg-plum-900', 'text-white');
+                btn.classList.add('bg-white', 'text-plum-900');
+            });
+            btnElement.classList.add('bg-plum-900', 'text-white');
+            btnElement.classList.remove('bg-white', 'text-plum-900');
+
+            document.querySelectorAll('.port-card').forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        function lockEstimateAndScroll() {
+            const guests = document.getElementById('guest-slider').value;
+            const range = document.getElementById('estimated-cost-text').innerText;
+            const msg = document.getElementById('inquiry-msg');
+            msg.value = `Estimate Context:\n- Category: ${currentType}\n- Guests: ${guests}\n- Budget Scope: ${range}`;
+            
+            scrollToSection('contact');
+        }
+
+        function openLightbox(src, caption, sub) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox-caption').innerText = caption;
+            document.getElementById('lightbox-sub').innerText = sub;
+            document.getElementById('lightbox').classList.remove('hidden');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.add('hidden');
+        }
+
+        function openMapModal() {
+            document.getElementById('map-modal').classList.remove('hidden');
+        }
+
+        function closeMapModal() {
+            document.getElementById('map-modal').classList.add('hidden');
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const feedback = document.getElementById('form-feedback');
+            feedback.classList.remove('hidden');
+            e.target.reset();
+            setTimeout(() => feedback.classList.add('hidden'), 5000);
+        }
+    </script>
+</body>
+</html>
